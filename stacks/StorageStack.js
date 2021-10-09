@@ -14,7 +14,7 @@ export default class StorageStack extends sst.Stack{
             },
             primaryIndex:{partitionKey:"userId",sortKey:"notesId"}
         });
-
+        
         this.bucket = new sst.Bucket(this,"Uploads")
     }
 }

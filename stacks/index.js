@@ -1,3 +1,4 @@
+import ApiStack from "./ApiStack";
 import StorageStack from "./StorageStack";
 
 export default function main(app) {
@@ -6,7 +7,11 @@ export default function main(app) {
     runtime: "nodejs12.x"
   });
 
-  new StorageStack(app, "storage");
+  const storage = new StorageStack(app, "storage");
+
+  new ApiStack(app,"api",{
+    table: storage.table
+  });
 
   // Add more stacks
 }
